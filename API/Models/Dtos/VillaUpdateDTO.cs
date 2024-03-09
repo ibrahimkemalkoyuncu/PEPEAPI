@@ -2,10 +2,10 @@
 
 namespace API.Models.Dtos
 {
-    public class VillaDTO
+    public class VillaUpdateDTO
     {
+        [Required]
         public int Id { get; set; }
-
 
         [Required]
         [MaxLength(30)]

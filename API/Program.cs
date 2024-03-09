@@ -1,9 +1,17 @@
 
 
-using API.Logging;
+using API.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+#region Database
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+});
+#endregion
 
 
 builder.Services.AddControllers(option=>
@@ -14,7 +22,6 @@ builder.Services.AddControllers(option=>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<ILogging, LogingV2>();
 
 
 //----------------------------------------------------------------//
