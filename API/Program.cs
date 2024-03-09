@@ -1,14 +1,23 @@
+
+
+using API.Logging;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 
 builder.Services.AddControllers(option=>
 {
-    option.ReturnHttpNotAcceptable = true;  
+    //option.ReturnHttpNotAcceptable = true;  
 }).AddNewtonsoftJson().AddXmlDataContractSerializerFormatters();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<ILogging, LogingV2>();
+
+
+//----------------------------------------------------------------//
 
 var app = builder.Build();
 
