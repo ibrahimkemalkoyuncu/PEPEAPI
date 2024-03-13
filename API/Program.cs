@@ -1,5 +1,6 @@
 
 
+using API;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
+#endregion
+
+#region AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 #endregion
 
 
