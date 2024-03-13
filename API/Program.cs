@@ -2,6 +2,8 @@
 
 using API;
 using API.Data;
+using API.Repository;
+using API.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 
 #region AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingConfig));
+#endregion
+
+#region Repository
+builder.Services.AddScoped<IVillaRepository, VillaRepository>();
 #endregion
 
 
