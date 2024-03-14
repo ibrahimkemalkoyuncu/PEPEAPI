@@ -1,8 +1,6 @@
 ﻿using API.Data;
 using API.Models;
 using API.Repository.IRepository;
-using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
 namespace API.Repository
 {
@@ -19,7 +17,7 @@ namespace API.Repository
         public async Task<Villa> UpdateAsync(Villa entity)
         {
             entity.UpdatedDate = DateTime.Now;  
-            _db.villas.Update(entity);
+            _db.Villas.Update(entity);
             await _db.SaveChangesAsync();
             return entity;
         }

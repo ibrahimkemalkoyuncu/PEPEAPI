@@ -9,8 +9,8 @@ namespace API.Data
         {
                 
         }
-        public DbSet<Villa> villas { get; set; }
-
+        public DbSet<Villa> Villas { get; set; }
+        public DbSet<VillaNumber> VillaNumbers { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
